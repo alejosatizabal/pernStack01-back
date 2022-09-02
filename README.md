@@ -36,4 +36,4 @@ Se instalan los paquetes
         escucha los cambios realizados en el servidor y lo recarga, se ejecuta como 'npm run dev'
 
 https://www.youtube.com/watch?v=_zGL_MU29zs&t=178s
-voy por 0:13:27
+voy por 0:16:15
