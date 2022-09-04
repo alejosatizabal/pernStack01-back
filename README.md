@@ -35,5 +35,37 @@ Se instalan los paquetes
     "dev": "nodemon src/index.js"
         escucha los cambios realizados en el servidor y lo recarga, se ejecuta como 'npm run dev'
 
+- En la barra de tareas del navegador solo se pueden probar peticiones GET, la barra de direcciones siempre envía peticiones GET
+
+- Se instala una extensión de VS Code del tipo 'cliente REST', para hacer peticiones PUT, POST y DELETE
+    Thunder Client
+    v1.18.7
+    Ranga Vadhineni
+
+    - Petición GET, se hace como si fuera un navegador, previamente seleccionando ese tipo de petición
+    - Se pueden hacer peticiones PUT, POST y DELETE como si fuera GET, siempre y cuando no lleven parametros
+
+- Se instala el módulo para conectar la base de datos PostgreSQL
+    npm i pg
+
+- Se puede instalar una extensión para conectarse a la base de datos del proyecto
+    PostgreSQL
+    v1.4.0
+    Chris Kolkman
+
+    - (1) Se puede realizar la conexión a la base de datos en el icono que aparece en el panel izquierdo
+    - (2) También se puede realizar la conexión en menú 'View/Command Palette/PostgreSQL:Add Connection'
+
+- Variables de entorno
+    - Se debe instalar 'dotenv'
+        npm install dotenv --save
+    - Se crea un archivo '.env' en la base del proyecto/repositorio y se ponen las variables que se van a usar
+        Ej:
+            DATABASE_URL="postgres://fysyiyfisuyi:N-fhsjhakdsuyfudsyfyieu4y2iu43@konami.db.elephantsql.com/fysyiyfisuyi"
+    - En el archivo donde se van a usar las variables se requiere a 'dotenv'
+        require('dotenv').config();
+    - Se usan esas variables de la siguiente manera
+        var conString = process.env.DATABASE_URL
+
 https://www.youtube.com/watch?v=_zGL_MU29zs&t=178s
-voy por 0:16:15
+voy por 0:27:56

@@ -1,3 +1,9 @@
 
 # Ignora la carpeta node_modules
 node_modules
+
+# Ignorando los datos de la BD ElephantSQL
+datosElephantSQL.txt
+
+# Ignorando las variables de entorno
+.env
