@@ -56,6 +56,21 @@ Se instalan los paquetes
     - (1) Se puede realizar la conexión a la base de datos en el icono que aparece en el panel izquierdo
     - (2) También se puede realizar la conexión en menú 'View/Command Palette/PostgreSQL:Add Connection'
 
+    - Para conectar con ElephantSQL
+        - "The hostname of the database"
+            jelani.db.elephantsql.com   (tomado de ElephantSQL)
+        - "The PostgreSWL user to authenticate as"
+            ykuxufwo        (tomado de ElephantSQL)
+        - "The password of the PostgreSQL user"
+            'el password respectivo'    (tomado de ElephantSQL)
+        - "The port number to connect to"
+            5432 (por defecto)
+        - Standard Conecction
+        - "[Optional] The database to connect to"
+            ykuxufwo        (tomado de ElephantSQL)
+        - "The display name of the database connection"
+            pernStack01     (puede ser cualquier nombre)
+
 - Variables de entorno
     - Se debe instalar 'dotenv'
         npm install dotenv --save
@@ -68,4 +83,4 @@ Se instalan los paquetes
         var conString = process.env.DATABASE_URL
 
 https://www.youtube.com/watch?v=_zGL_MU29zs&t=178s
-voy por 0:27:56
+voy por 0:29:44

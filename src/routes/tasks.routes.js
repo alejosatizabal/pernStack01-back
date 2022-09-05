@@ -1,5 +1,6 @@
 const { Router } = require('express'); // Se importa la función Router
-const client = require('../db-elephantsql');
+const client = require('../db-elephantsql'); // Conectandose a ElephantSQL
+const pool = require('../db-local');
 
 const router = Router(); // Se ejecuta la función Router. El objeto 'router' permite crear nuevas URLs
 
@@ -33,10 +34,17 @@ router.put('/tasks', (req, res) => {
 });
  */
 
-router.get('/tasks', async (req, res) => {
+router.get('/pgelephant', async (req, res) => {
     const result = await client.query('SELECT NOW()')
     console.log(result);
     res.json('executed')
+});
+
+router.get('/pglocal', async (req, res) => {
+    const result = await pool.query('SELECT NOW()')
+    console.log(result);
+    //res.json('executed')
+    res.json(result.rows[0].now)
 });
 
 router.get('/tasks/10', (req, res) => {

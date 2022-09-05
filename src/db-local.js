@@ -1,8 +1,11 @@
 const {Pool} = require('pg'); // Requiero al módulo 'pg' para la conexión a PostgreSQL
 
-new Pool({
+const pool = new Pool({
     user: 'postgres',
-    password: 'contrasena',
+    password: 'postgres',
     host: 'localhost',
-    port: 5432
-})
+    port: 5432,
+    database: 'tasksdb'
+});
+
+module.exports = pool;
