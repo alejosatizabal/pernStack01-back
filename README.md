@@ -45,6 +45,13 @@ Se instalan los paquetes
     - Petición GET, se hace como si fuera un navegador, previamente seleccionando ese tipo de petición
     - Se pueden hacer peticiones PUT, POST y DELETE como si fuera GET, siempre y cuando no lleven parametros
 
+    - Para las peticiones POST, en el 'body' deben ir objetos json
+        Ej:
+            {
+                "titulo": "Hola mundo",
+                "descripcion": "es un saludo en español"
+            }
+
 - Se instala el módulo para conectar la base de datos PostgreSQL
     npm i pg
 
@@ -83,4 +90,4 @@ Se instalan los paquetes
         var conString = process.env.DATABASE_URL
 
 https://www.youtube.com/watch?v=_zGL_MU29zs&t=178s
-voy por 0:29:44
+voy por 0:41:14
