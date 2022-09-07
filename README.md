@@ -90,4 +90,4 @@ Se instalan los paquetes
         var conString = process.env.DATABASE_URL
 
 https://www.youtube.com/watch?v=_zGL_MU29zs&t=178s
-voy por 0:41:14
+voy por 1:04:43

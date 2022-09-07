@@ -52,11 +52,13 @@ router.get('/pglocal', async (req, res) => {
 
 router.get('/tasks', getAllTasks);
 
-router.get('/tasks/10', getTask);
+//router.get('/tasks/10', getTask);
+router.get('/tasks/:id', getTask); // El ':id' es para esperar una variable
 
 router.post('/tasks', createTask);
 
-router.delete('/tasks', deleteTask);
+//router.delete('/tasks', deleteTask);
+router.delete('/tasks/:id', deleteTask);
 
 router.put('/tasks', updateTask);
 
