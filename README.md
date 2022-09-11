@@ -89,5 +89,9 @@ Se instalan los paquetes
     - Se usan esas variables de la siguiente manera
         var conString = process.env.DATABASE_URL
 
+- Cuando se crea una ruta se puede usar 'req', 'res' y 'next'
+    - 'next' es un callback que permite saltar o enviar la función hacia otro lugar, o que continue con la siguiente función
+    - La función 'next' está disponible en todas las rutas o manejo de funciones que se esten utilizando
+
 https://www.youtube.com/watch?v=_zGL_MU29zs&t=178s
 voy por 1:04:43

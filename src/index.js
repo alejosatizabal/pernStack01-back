@@ -10,5 +10,12 @@ app.use(express.json()); // Para que el servidor Express pueda entender el 'body
 
 app.use(taskRoutes); // Se hace uso de taskRoutes
 
+// Manejo de errores
+app.use((err, req, res, next) =>{ // El 'next' hace que pase a la siguiente función, en este caso a 'err'
+    return res.json({
+        message: 'Error!!!'
+    })
+})
+
 app.listen(3000); // Escuchar a Express en el puerto 3000
 console.log("Servidor en el puerto 3000");

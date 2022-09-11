@@ -4,7 +4,7 @@ const pool = require('../db-local');
 /*const getAllTasks = async (req, res) => {
     res.send('Retrieving a list of tasks');
 };*/
-const getAllTasks = async (req, res) => {
+const getAllTasks = async (req, res, next) => {
     try {
         const allTask = await pool.query('SELECT * FROM task');
         //console.log(allTask);
@@ -18,7 +18,7 @@ const getAllTasks = async (req, res) => {
 /*const getTask = async (req, res) => {
     res.send('Retrieving a single task');
 };*/
-const getTask = async (req, res) => {
+const getTask = async (req, res, next) => {
     try {
         //console.log(req.params.id); // Recibe el parametro que venga despues del '/' final en la ruta y lo imprime
         const {id} = req.params; // Recibe el parametro que venga despues del '/' final en la ruta y lo guarda en 'id'
@@ -39,7 +39,7 @@ const getTask = async (req, res) => {
 };
 
 
-const createTask = async (req, res) => {
+const createTask = async (req, res, next) => {
     //const task = req.body; // 'req.body' permite conocer la información que envía las aplicaciones cliente
 
     const {title, description} = req.body; // 'req.body' permite conocer la información que envía las aplicaciones cliente
@@ -56,12 +56,13 @@ const createTask = async (req, res) => {
         //res.send('Creating a task');
         res.json(result.rows[0]);
     } catch (error) {
-        console.log(error.message);
-        res.json({ error: error.message });
+        //console.log(error.message);
+        //res.json({ error: error.message });
+        next(error);
     }
 };
 
-const deleteTask = async (req, res) => {
+const deleteTask = async (req, res, next) => {
     const {id} = req.params
 
     //const result = await pool.query('DELETE FROM task WHERE id = $1 RETURNING *', [id]);
@@ -78,7 +79,7 @@ const deleteTask = async (req, res) => {
     return res.sendStatus(204);
 };
 
-const updateTask = async (req, res) => {
+const updateTask = async (req, res, next) => {
 
     const {id} = req.params;
     const {title, description} = req.body;
