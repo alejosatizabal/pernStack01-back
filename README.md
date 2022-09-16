@@ -1,10 +1,10 @@
 # pernStack01-back
 
-Se define un proyecto nuevo de Node
+- Se define un proyecto nuevo de Node
     npm init -y
         crea el archivo package.json
 
-Se instalan los paquetes
+- Se instalan los paquetes
     Express
         npm install express
             framework de node para crear un servidor de manera simple
@@ -93,5 +93,8 @@ Se instalan los paquetes
     - 'next' es un callback que permite saltar o enviar la función hacia otro lugar, o que continue con la siguiente función
     - La función 'next' está disponible en todas las rutas o manejo de funciones que se esten utilizando
 
+- Para lanzar un error de forma premeditada
+    throw new Error('Algo fue mal');
+
 https://www.youtube.com/watch?v=_zGL_MU29zs&t=178s
-voy por 1:04:43
+voy por 1:18:26

@@ -6,12 +6,14 @@ const pool = require('../db-local');
 };*/
 const getAllTasks = async (req, res, next) => {
     try {
+        //throw new Error('Algo fue mal'); // Lanzando un error de forma premeditada
         const allTask = await pool.query('SELECT * FROM task');
         //console.log(allTask);
         //res.send('tareas');
         res.json(allTask.rows);
     } catch (error) {
-        console.log(error.message);
+        //console.log(error.message);
+        next(error);
     }
 };
 
@@ -34,7 +36,8 @@ const getTask = async (req, res, next) => {
         //res.send('Retrieving a single task');
         return res.json(result.rows[0]);
     } catch (error) {
-        console.log(error.message);
+        //console.log(error.message);
+        next(error);
     }
 };
 
@@ -65,43 +68,51 @@ const createTask = async (req, res, next) => {
 const deleteTask = async (req, res, next) => {
     const {id} = req.params
 
-    //const result = await pool.query('DELETE FROM task WHERE id = $1 RETURNING *', [id]);
-    const result = await pool.query('DELETE FROM task WHERE id = $1', [id]);
+    try {
+        //const result = await pool.query('DELETE FROM task WHERE id = $1 RETURNING *', [id]);
+        const result = await pool.query('DELETE FROM task WHERE id = $1', [id]);
 
-    console.log(result)
+        console.log(result)
 
-    if (result.rowCount === 0)
-        return res.status(404).json({
-            message: 'Task not found'
-        });
+        if (result.rowCount === 0)
+            return res.status(404).json({
+                message: 'Task not found'
+            });
 
-    //res.send('Deleting a task');
-    return res.sendStatus(204);
+        //res.send('Deleting a task');
+        return res.sendStatus(204);
+    } catch (error) {
+        next(error);   
+    }
 };
 
 const updateTask = async (req, res, next) => {
 
-    const {id} = req.params;
-    const {title, description} = req.body;
-
-    //console.log(id, title, description);
-
-    const result = await pool.query(
-        //'UPDATE task SET title = $1, description = $2 WHERE id = $3',
-        'UPDATE task SET title = $1, description = $2 WHERE id = $3 RETURNING *',
-        [title, description,id
-    ]);
-
-    if (result.rowCount === 0)
-        return res.status(404).json({
-            message: "Task not found"
-        });
-
-    console.log(result);
-
-    //res.send('Updating a task');
-    return res.json(result.rows[0]);
-    //res.json(result.rows[0]);
+    try {
+        const {id} = req.params;
+        const {title, description} = req.body;
+    
+        //console.log(id, title, description);
+    
+        const result = await pool.query(
+            //'UPDATE task SET title = $1, description = $2 WHERE id = $3',
+            'UPDATE task SET title = $1, description = $2 WHERE id = $3 RETURNING *',
+            [title, description,id
+        ]);
+    
+        if (result.rowCount === 0)
+            return res.status(404).json({
+                message: "Task not found"
+            });
+    
+        console.log(result);
+    
+        //res.send('Updating a task');
+        return res.json(result.rows[0]);
+        //res.json(result.rows[0]);
+    } catch (error) {
+        next(error);
+    }
 };
 
 module.exports = {

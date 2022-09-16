@@ -1,6 +1,6 @@
 const { Router } = require('express'); // Se importa la función Router
-const client = require('../db-elephantsql'); // Conectandose a ElephantSQL
-//const pool = require('../db-local');
+//const client = require('../db-elephantsql'); // Conectandose a ElephantSQL
+const pool = require('../db-local');
 const { getAllTasks, getTask, createTask, deleteTask, updateTask } = require('../controllers/tasks.controller')
 
 const router = Router(); // Se ejecuta la función Router. El objeto 'router' permite crear nuevas URLs
