@@ -1,3 +1,10 @@
+// Se requiere así
+//require('dotenv').config();
+// o así
+//const {config} = require('dotenv');
+//config();
+
+
 const {Pool} = require('pg'); // Requiero al módulo 'pg' para la conexión a PostgreSQL
 
 const pool = new Pool({
